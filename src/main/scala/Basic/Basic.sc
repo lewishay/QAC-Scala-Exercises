@@ -2,19 +2,16 @@
 
 val hello = "Hello world!"
 
-def stringOutputter(theString: String) = {
-  println(theString)
-}
+def stringOutputter(theString: String) = println(theString)
+
 stringOutputter("Hey world")
 
-def stringReturner(): String = {
-  "Heya world"
-}
+def stringReturner(): String = "Heya world"
+
 stringReturner()
 
-def multiType(vari: Any) = {
-  vari
-}
+def multiType(vari: Any) = vari
+
 multiType("String")
 multiType(65)
 multiType(7.345)
@@ -27,7 +24,7 @@ fromEnd("Hello", 3)
 
 def charReplace(sub1: String, sub2: String, char1: Char, char2: Char): String = {
   val concat = sub1.concat(sub2)
-  (concat.replace(char1, char2))
+  concat.replace(char1, char2)
 }
 charReplace("Ha", "llo", 'a', 'e')
 
@@ -135,3 +132,42 @@ def newIteration3(word1: String, word2: String, number: Int): String = {
   }
 }
 newIteration3("Fizz", "Buzz", 20)
+
+def patternMatch1(x: Int, y: Int, condition: Boolean): Int = {
+  condition match {
+    case true =>
+      x match {
+        case 0 => y
+        case _ =>
+          y match {
+            case 0 => x
+            case _ => x + y
+          }
+      }
+    case false =>
+      x match {
+        case 0 => y
+        case _ =>
+          y match {
+            case 0 => x
+            case _ => x * y
+          }
+      }
+  }
+}
+patternMatch1(56, 44, true)
+patternMatch1(56, 0, false)
+patternMatch1(0, 0, true)
+
+def patternMatch2(twoInts: Any): Any = twoInts match {
+  case (x, y) => (y, x)
+  case List(x, y) => List(y, x)
+  case Array(x, y) => Array(y, x)
+  case _ => "Not a valid type"
+}
+patternMatch2((5, 7))
+patternMatch2(List(5, 7))
+patternMatch2(Array(5, 7))
+patternMatch2("blah")
+
+java.util.TimeZone.getAvailableIDs().map(item => item.split("/").filter(_.length > 1).last).grouped(20).toArray.map(value => value.head)
