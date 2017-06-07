@@ -8,4 +8,8 @@ abstract class Vehicle(manufacturer: String, model: String, licencePlate: String
   def getManufacturer() = manufacturer
   def getModel() = model
   def getLicencePlate() = licencePlate
+
+  def assignBrokenParts(): Unit = {
+
+  }
 }
