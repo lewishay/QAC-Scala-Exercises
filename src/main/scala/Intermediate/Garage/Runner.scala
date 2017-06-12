@@ -1,5 +1,7 @@
 package Intermediate.Garage
 
+import scala.util.Random
+
 /**
   * Created by Administrator on 07/06/2017.
   */
@@ -15,7 +17,7 @@ object Runner extends App {
   // Populating the garage with sample data
   garage.addVehicle(car1); garage.addVehicle(car2); garage.addVehicle(car3); garage.addVehicle(bike1); garage.addVehicle(bike2); garage.addVehicle(car4)
   garage.addVehicle(car5); garage.addVehicle(car6); garage.addVehicle(car7); garage.addVehicle(car8); garage.addVehicle(bike3); garage.addVehicle(bike4)
-  garage.registerEmployee("Darak", 29, "Junior Mechanic"); garage.registerEmployee("Derek", 35, "Senior Mechanic")
+  garage.registerEmployee("Jimmy", 29, "Junior Mechanic"); garage.registerEmployee("Derek", 35, "Senior Mechanic")
   garage.registerCustomer("Jeff", 25, car1); garage.registerCustomer("Alfred", 57, car2); garage.registerCustomer("Sarah", 34, car3)
   garage.registerCustomer("Bill", 41, bike1); garage.registerCustomer("Ross", 21, bike2); garage.registerCustomer("Ben", 51, car4)
   garage.registerCustomer("Kay", 19, bike3); garage.registerCustomer("Robert", 43, car5); garage.registerCustomer("Naomi", 36, car6)
@@ -24,7 +26,7 @@ object Runner extends App {
   // Output of the garage scenario
   println(garage.getTotalFixTime()); println("-----")
   for (item <- garage.peopleAndVehicles) item match {
-    case item: Vehicle => println(garage.calculateBill(item)); garage.fixVehicle(item)
+    case item: Vehicle => print(garage.calculateBill(item)); print(s" The vehicle took ${garage.getFixTime(item)} minutes to fix. "); println(garage.fixVehicle(item));
     case _ =>
   }
   println("-----"); println(s"The total earnings for this session are £${garage.totalEarnings}" + ".")
