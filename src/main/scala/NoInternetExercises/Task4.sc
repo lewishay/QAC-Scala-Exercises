@@ -1,14 +1,10 @@
 import scala.collection.mutable.ListBuffer
 
-var theList = new ListBuffer[Int]
-var lengthStore = 0
-var counter = 0
-
 def fibonacci(x: Int): Int = {
-  if(theList.length > 0) theList.clear()
+  var theList = new ListBuffer[Int]
   theList += 0; theList += 1;
-  lengthStore = -1
-  counter = 0
+  var lengthStore = -1
+  var counter = 0
   def fibonacciHelper(n: Int): Int = {
     if (lengthStore == -1) lengthStore = n
     n match {

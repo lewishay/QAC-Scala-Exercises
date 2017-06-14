@@ -8,7 +8,6 @@ def bunnyEars(x: Int): Int = {
   bunnyHelper(x)
 }
 
-
 bunnyEars(0)
 bunnyEars(1)
 bunnyEars(2)
