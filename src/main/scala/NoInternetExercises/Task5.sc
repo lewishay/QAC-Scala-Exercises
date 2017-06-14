@@ -1,12 +1,14 @@
-var total = 0
-
-def init() = total = 0
-
-def bunnyEars(bunnies: Int): Int = {
-  if(bunnies == 0) return total
-  else total += 2; bunnyEars(bunnies - 1)
+def bunnyEars(x: Int): Int = {
+  var total = 0
+  def bunnyHelper(bunnies: Int): Int = {
+    if (bunnies == 0) return total
+    else total += 2;
+    bunnyHelper(bunnies - 1)
+  }
+  bunnyHelper(x)
 }
 
-init(); bunnyEars(0)
-init(); bunnyEars(1)
-init(); bunnyEars(2)
+
+bunnyEars(0)
+bunnyEars(1)
+bunnyEars(2)
