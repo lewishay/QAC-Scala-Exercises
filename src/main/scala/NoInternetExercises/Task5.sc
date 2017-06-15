@@ -1,13 +1,12 @@
 def bunnyEars(x: Int): Int = {
-  var total = 0
-  def bunnyHelper(bunnies: Int): Int = {
-    if (bunnies == 0) return total
-    else total += 2;
-    bunnyHelper(bunnies - 1)
-  }
-  bunnyHelper(x)
+  if (x == 0) return x
+  else 2 + bunnyEars(x - 1)
 }
 
 bunnyEars(0)
 bunnyEars(1)
 bunnyEars(2)
+bunnyEars(18)
+bunnyEars(40)
+bunnyEars(95)
+bunnyEars(1005)
